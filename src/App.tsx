@@ -14,6 +14,20 @@ function App() {
   // );
   /////////////////////////////////////////////////
   // Part-B: 2-way binding
+//   const [value, setValue] = useState(0);
+//   const incHandler = (value: number) => {
+//     setValue(value);
+//   };
+//   return (
+//     <div className="App">
+//       <h4 style={{ color: "red" }}>Counter: {value}</h4>
+//       <div className="App"></div>
+//       <Counter value={value} incHandler={incHandler} decHandler={incHandler} />
+//     </div>
+//   );
+// }
+////////////////////////////////////////////////////////
+// Part-C: 2-way binding using less passing of arguments
   const [value, setValue] = useState(0);
   const incHandler = (value: number) => {
     setValue(value);
@@ -21,8 +35,7 @@ function App() {
   return (
     <div className="App">
       <h4 style={{ color: "red" }}>Counter: {value}</h4>
-      <div className="App"></div>
-      <Counter value={value} incHandler={incHandler} decHandler={incHandler} />
+      <Counter value={value} incHandler={incHandler} />
     </div>
   );
 }
