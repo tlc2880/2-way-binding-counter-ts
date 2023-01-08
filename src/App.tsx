@@ -5,12 +5,25 @@ import './App.css';
 function App() {
   //////////////////////////////////////////////
   // Part-A: 1-way binding counter
+  // const [value, setValue] = useState(0);
+  // return (
+  //   <div className="App">
+  //     <h4 style={{ color: "red" }}>Counter: {value}</h4>
+  //     <Counter value={value} setValue={setValue} />
+  //   </div>
+  // );
+  /////////////////////////////////////////////////
+  // Part-B: 2-way binding
   const [value, setValue] = useState(0);
+  const incHandler = (value: number) => {
+    setValue(value);
+  };
   return (
     <div className="App">
       <h4 style={{ color: "red" }}>Counter: {value}</h4>
-      <Counter value={value} setValue={setValue} />
+      <div className="App"></div>
+      <Counter value={value} incHandler={incHandler} decHandler={incHandler} />
     </div>
   );
-  }
+}
 export default App;
