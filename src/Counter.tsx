@@ -51,11 +51,42 @@ import { useState } from "react";
 // };
 ////////////////////////////////////////////////////////////
 // Part-D: 2-way binding of output data and 1-way input data
+// type counterProps = {
+//   value: number;
+//   incHandler: (arg0: number) => void;
+// };
+// const Counter = ({ value, incHandler }: counterProps) => {
+//   const [addVal, setAddVal] = useState(1);
+//   const handleCounter = (isIncrement: boolean) => {
+//     if (isIncrement) {
+//       incHandler(value + 1);
+//     } else {
+//       incHandler(value - 1);
+//     }
+//   };
+//   const AddInput = () => incHandler(addVal + value);
+//   return (
+//     <>
+//       <button onClick={() => handleCounter(true)}>+</button>
+//       <button onClick={() => handleCounter(false)}>-</button>
+//       <button onClick={() => incHandler((value = 0))}>Reset</button>
+//       <input
+//         type="number"
+//         value={addVal}
+//         onChange={(e) => setAddVal(parseInt(e.target.value, 10))}
+//       />
+//       <button onClick={AddInput}>Add Input</button>
+//     </>
+//   );
+// };
+///////////////////////////////////////////////////////
+// Part-E & F: 2-way binding of output data and input data
 type counterProps = {
   value: number;
   incHandler: (arg0: number) => void;
+  multVal: number;
 };
-const Counter = ({ value, incHandler }: counterProps) => {
+const Counter = ({ value, incHandler, multVal }: counterProps) => {
   const [addVal, setAddVal] = useState(1);
   const handleCounter = (isIncrement: boolean) => {
     if (isIncrement) {
@@ -65,6 +96,7 @@ const Counter = ({ value, incHandler }: counterProps) => {
     }
   };
   const AddInput = () => incHandler(addVal + value);
+  const MultInput = () => incHandler(multVal * value);
   return (
     <>
       <button onClick={() => handleCounter(true)}>+</button>
@@ -76,6 +108,7 @@ const Counter = ({ value, incHandler }: counterProps) => {
         onChange={(e) => setAddVal(parseInt(e.target.value, 10))}
       />
       <button onClick={AddInput}>Add Input</button>
+      <button onClick={MultInput}>Mult Input</button>
     </>
   );
 };
