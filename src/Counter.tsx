@@ -81,36 +81,100 @@ import { useState } from "react";
 // };
 ///////////////////////////////////////////////////////
 // Part-E: 2-way binding of output data and input data
+// type counterProps = {
+//   value: number;
+//   incHandler: (arg0: number) => void;
+//   multVal: number;
+// };
+// const Counter = ({ value, incHandler, multVal }: counterProps) => {
+//   const [addVal, setAddVal] = useState(1);
+//   const handleCounter = (isIncrement: boolean) => {
+//     if (isIncrement) {
+//       incHandler(value + 1);
+//     } else {
+//       incHandler(value - 1);
+//     }
+//   };
+//   const AddInput = () => incHandler(addVal + value);
+//   const MultInput = () => incHandler(multVal * value);
+//   return (
+//     <>
+//       <button onClick={() => handleCounter(true)}>+</button>
+//       <button onClick={() => handleCounter(false)}>-</button>
+//       <button onClick={() => incHandler((value = 0))}>Reset</button>
+//       <input
+//         type="number"
+//         value={addVal}
+//         onChange={(e) => setAddVal(parseInt(e.target.value, 10))}
+//       />
+//       <button onClick={AddInput}>Add Input</button>
+//       <button onClick={MultInput}>Mult Input</button>
+//     </>
+//   );
+// };
+//////////////////////////////////////////////////////////////////////
+// Part-F: 2-way binding with push array, push string, and mult array
 type counterProps = {
-  value: number;
-  incHandler: (arg0: number) => void;
-  multVal: number;
-};
-const Counter = ({ value, incHandler, multVal }: counterProps) => {
-  const [addVal, setAddVal] = useState(1);
-  const handleCounter = (isIncrement: boolean) => {
-    if (isIncrement) {
-      incHandler(value + 1);
-    } else {
-      incHandler(value - 1);
-    }
+    value: number;
+    incHandler: (arg0: number) => void;
+    multVal: number;
+    arr: number[];
+    setArr: (arg0: number[]) => void; // this will also work: ()=>void
+    strArr: string[];
+    setStrArr: (arg0: string[]) => void; // this will also work: ()=>void
   };
-  const AddInput = () => incHandler(addVal + value);
-  const MultInput = () => incHandler(multVal * value);
-  return (
-    <>
-      <button onClick={() => handleCounter(true)}>+</button>
-      <button onClick={() => handleCounter(false)}>-</button>
-      <button onClick={() => incHandler((value = 0))}>Reset</button>
-      <input
-        type="number"
-        value={addVal}
-        onChange={(e) => setAddVal(parseInt(e.target.value, 10))}
-      />
-      <button onClick={AddInput}>Add Input</button>
-      <button onClick={MultInput}>Mult Input</button>
-    </>
-  );
-};
-
+  
+  const Counter = ({
+    value,
+    incHandler,
+    multVal,
+    arr,
+    setArr,
+    strArr,
+    setStrArr
+  }: counterProps) => {
+    const [addVal, setAddVal] = useState(1);
+    const [inStr, setInStr] = useState("");
+  
+    const handleCounter = (isIncrement: boolean) => {
+      if (isIncrement) {
+        incHandler(value + addVal);
+      } else {
+        incHandler(value - addVal);
+      }
+    };
+    return (
+      <>
+        <button onClick={() => handleCounter(true)}>+</button>
+        <button onClick={() => handleCounter(false)}>-</button>
+        <button onClick={() => incHandler((value = 0))}>Reset</button>
+        <input
+          type="number"
+          value={addVal}
+          onChange={(e) => setAddVal(parseInt(e.target.value, 10))}
+        />
+        <button
+          onClick={() => {
+            setArr([...arr, arr.length + 1]);
+            console.log(arr);
+          }}
+        >
+          Push array
+        </button>
+        <input
+          type="string"
+          value={inStr}
+          onChange={(e) => setInStr(e.target.value)}
+        />
+        <button
+          onClick={() => {
+            setStrArr([...strArr, inStr]);
+            setInStr("");
+          }}
+        >
+          Push Str
+        </button>
+      </>
+    );
+  };
 export default Counter;
