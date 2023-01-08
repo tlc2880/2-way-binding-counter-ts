@@ -39,17 +39,37 @@ function App() {
 //     </div>
 //   );
 // }
-  ////////////////////////////////////////////////////////////
-  // Part-D: 2-way binding using less passing of arguments
+////////////////////////////////////////////////////////////
+// Part-D: 2-way binding using less passing of arguments
+//   const [value, setValue] = useState(0);
+//   const incHandler = (value: number) => {
+//     setValue(value);
+//   };
+//   return (
+//     <div className="App">
+//       <h4 style={{ color: "red" }}>Counter: {value}</h4>
+//       <Counter value={value} incHandler={incHandler} />
+//     </div>
+//   );
+// }
+
+  //////////////////////////////////////////////////////
+  // Part-E: 2-way binding of output data and input data
     const [value, setValue] = useState(0);
+    const [multVal, setMultVal] = useState(1);
     const incHandler = (value: number) => {
       setValue(value);
     };
     return (
       <div className="App">
         <h4 style={{ color: "red" }}>Counter: {value}</h4>
-        <Counter value={value} incHandler={incHandler} />
+        <Counter value={value} incHandler={incHandler} multVal={multVal} />
+        <input
+          type="number"
+          value={multVal}
+          onChange={(e) => setMultVal(parseInt(e.target.value, 10))}
+        />
       </div>
     );
   }
-export default App;
+  export default App;
