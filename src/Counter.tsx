@@ -80,7 +80,7 @@ import { useState } from "react";
 //   );
 // };
 ///////////////////////////////////////////////////////
-// Part-E & F: 2-way binding of output data and input data
+// Part-E: 2-way binding of output data and input data
 type counterProps = {
   value: number;
   incHandler: (arg0: number) => void;
@@ -112,4 +112,5 @@ const Counter = ({ value, incHandler, multVal }: counterProps) => {
     </>
   );
 };
+
 export default Counter;
