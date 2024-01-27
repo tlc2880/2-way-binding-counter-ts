@@ -5,15 +5,15 @@ type counterProps = {
   value: number;
   incHandler: (arg0: number) => void;
   arr: number[];
-  setArr: (arg0: number[]) => void; // this will also work: ()=>void
+  setArr: (arg0: number[]) => void;
   strArr: string[];
-  setStrArr: (arg0: string[]) => void; // this will also work: ()=>void
+  setStrArr: (arg0: string[]) => void;
   obj: {
     objNum: number;
     objNumArr: number[];
     objStrArr: string[];
   };
-  setObj: any; // this will also work: ()=>void
+  setObj: any;
 };
 
 const Counter = ({
