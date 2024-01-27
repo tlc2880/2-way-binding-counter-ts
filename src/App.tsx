@@ -96,7 +96,7 @@ function App() {
         value={multVal}
         onChange={(e) => setMultVal(parseInt(e.target.value, 10))}
       />
-      <button onClick={() => setValue(value * 2)}>Mult Counter by 2</button>
+      <button onClick={() => setValue(value * multVal)}>Mult Counter</button>
     </div>
   );
 }
