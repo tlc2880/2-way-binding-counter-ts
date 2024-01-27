@@ -70,7 +70,6 @@ const Counter = ({
       </button>
       <input
         type="string"
-        //className={styles.textbox}
         value={inStr}
         onChange={(e) => setInStr(e.target.value)}
       />
